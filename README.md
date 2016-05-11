@@ -93,6 +93,8 @@ head(activity_data)
 
 ### What is mean total number of steps taken per day?
 1. Make a histogram of the total number of steps taken each day
+<p><a href="/amitms/RepData_PeerAssessment1/blob/master/figures/plot1.png" target="_blank"><img src="/amitms/RepData_PeerAssessment1/blob/master/figures/plot1.png" alt="plot1.png" style="max-width:100%;"></a> </p>
+
 <link rel="plot1" href="/plot1.png">
 2. Calculate and report the **mean** and **median** total number of steps taken per day
 
