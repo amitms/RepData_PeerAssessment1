@@ -41,10 +41,10 @@ ggplot(interval, aes(x=interval, y=steps)) +  geom_line(color = "firebrick")
 
 dev.copy(png,"plot2.png",width=400,height=400)
 dev.off()
-
+interval[which.max(interval$steps),]
 
 #Use which.max() to find out the maximum steps, on average, across all the da
-interval[which.max(interval$steps),]
+
 sum(is.na(activity_data$steps))
 
 activity_data_full <- activity_data
