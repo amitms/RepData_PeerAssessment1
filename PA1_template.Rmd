@@ -24,7 +24,7 @@ activity_data$date <- ymd(activity_data$date)
 str(activity_data)
 head(activity_data)
 ```
-<link rel="plot1" href="/plot1.png">
+
 ## What is mean total number of steps taken per day?
 ```r
 #1 Calculate the total number of steps per day using dplyr and group by date:
@@ -44,6 +44,7 @@ median_steps <- median(steps$steps, na.rm = TRUE)
 mean_steps
 median_steps
 ```
+<p><a href="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot1.png" target="_blank"><img src="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot1.png" alt="plot1.png" style="max-width:100%;"></a> </p>
 
 ## What is the average daily activity pattern?
 ```r
@@ -57,6 +58,7 @@ dev.off()
 interval[which.max(interval$steps),]
 
 ```
+<p><a href="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot2.png" target="_blank"><img src="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot2.png" alt="plot1.png" style="max-width:100%;"></a> </p>
 
 ## Imputing missing values
 ```r
@@ -105,6 +107,8 @@ median_steps_full <- median(steps_full$steps, na.rm = TRUE)
 mean_steps_full
 median_steps_full
 ```
+<p><a href="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot3.png" target="_blank"><img src="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot3.png" alt="plot3.png" style="max-width:100%;"></a> </p>
+
 
 ## Are there differences in activity patterns between weekdays and weekends?
 ```r
@@ -118,3 +122,5 @@ print(s)
 dev.copy(png,"plot4.png",width=400,height=400)
 dev.off()
 ```
+<p><a href="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot4.png" target="_blank"><img src="https://github.com/amitms/RepData_PeerAssessment1/blob/master/figures/plot4.png" alt="plot4.png" style="max-width:100%;"></a> </p>
+
