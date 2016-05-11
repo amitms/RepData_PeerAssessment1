@@ -79,19 +79,59 @@ assignment so you do not have to download the data separately.
 Show any code that is needed to
 
 1. Load the data (i.e. `read.csv()`)
+```r
+activity_data <- read.csv("activity.csv", header = TRUE, sep = ',', colClasses = c("numeric", "character", "integer"))
+```
 
 2. Process/transform the data (if necessary) into a format suitable for your analysis
-
+```r
+#Tidying the data
+activity_data$date <- ymd(activity_data$date)
+str(activity_data)
+head(activity_data)
+```
 
 ### What is mean total number of steps taken per day?
+1. Make a histogram of the total number of steps taken each day
+<link rel="plot1" href="/plot1.png">
+2. Calculate and report the **mean** and **median** total number of steps taken per day
 
 For this part of the assignment, you can ignore the missing values in
 the dataset.
+```r
+#1 Calculate the total number of steps per day using dplyr and group by date:
+steps <- activity_data %>%  filter(!is.na(steps)) %>%  group_by(date) %>%  summarize(steps = sum(steps)) %>%
+  print
 
-1. Make a histogram of the total number of steps taken each day
+#2 histogram
+ggplot(steps, aes(x = steps)) +
+  geom_histogram(fill = "firebrick", binwidth = 1000) +
+  labs(title = "Histogram of Steps per day", x = "Steps per day", y = "Frequency")
 
-2. Calculate and report the **mean** and **median** total number of steps taken per day
+dev.copy(png,"plot1.png",width=400,height=400)
+dev.off()  
+#3 Calculate the mean and median of the total number of steps taken per day:
+mean_steps <- mean(steps$steps, na.rm = TRUE)
+median_steps <- median(steps$steps, na.rm = TRUE)
+mean_steps
+median_steps
+```
+mean_steps
+## [1] 10766.19
+median_steps
+## [1] 10765
 
+```r
+#Calculate the average number of steps taken in each 5-minute interval per day
+interval <- activity_data %>%  filter(!is.na(steps)) %>%  group_by(interval) %>%  summarize(steps = mean(steps))
+#plot
+ggplot(interval, aes(x=interval, y=steps)) +  geom_line(color = "firebrick")
+
+dev.copy(png,"plot2.png",width=400,height=400)
+dev.off()
+interval[which.max(interval$steps),]
+
+```
 
 ### What is the average daily activity pattern?
 

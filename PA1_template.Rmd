@@ -16,7 +16,6 @@ opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(lubridate)
 library(ggplot2)
-```
 
 activity_data <- read.csv("activity.csv", header = TRUE, sep = ',', colClasses = c("numeric", "character", "integer"))
 
@@ -25,7 +24,7 @@ activity_data$date <- ymd(activity_data$date)
 str(activity_data)
 head(activity_data)
 ```
-
+<link rel="plot1" href="/plot1.png">
 ## What is mean total number of steps taken per day?
 ```r
 #1 Calculate the total number of steps per day using dplyr and group by date:
