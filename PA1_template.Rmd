@@ -17,8 +17,7 @@ library(dplyr)
 library(lubridate)
 library(ggplot2)
 ```
-#Loading and preprocessing the adata
-```r
+
 activity_data <- read.csv("activity.csv", header = TRUE, sep = ',', colClasses = c("numeric", "character", "integer"))
 
 #Tidying the data
